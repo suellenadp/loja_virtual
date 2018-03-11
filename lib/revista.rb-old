@@ -1,0 +1,14 @@
+class Revista
+
+	def initialize(titulo)
+		@titulo = titulo
+	end
+
+	def titulo
+		@titulo
+	end
+	
+	def titulo_formatado
+		"Título: #{@titulo}"
+	end
+end

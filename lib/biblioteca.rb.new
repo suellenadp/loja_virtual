@@ -1,0 +1,20 @@
+class Biblioteca
+    def initialize
+        @livros = {} # Inicializa com um hash
+        # Inicializa banco de arquivos
+        @banco_de_arquivos = BancoDeArquivos.new
+    end
+    def adiciona(livro)
+        @livros[livro.categoria] ||= []
+        @livros[livro.categoria] << livro
+        @banco_de_arquivos.salva livro
+    end
+    def livros
+        @livros.values.flaten
+    end 
+    def livros_por_categoria(categoria)
+        @livros[categoria].each do |livro|
+            yield livro if block_given?
+        end
+    end
+end
