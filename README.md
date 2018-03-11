@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # README
 
 This README would normally document whatever steps are necessary to get the
@@ -22,3 +23,6 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+=======
+# loja_virtual
+>>>>>>> 2675a2d7ee10af727a0c7a11dd3e64989f300cf6
