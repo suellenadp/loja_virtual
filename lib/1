@@ -1,0 +1,25 @@
+class Revista
+    attr_reader :titulo, :id
+    
+    def initialize(titulo, valor)
+        @titulo = titulo
+        @valor = valor
+        @id = self.class.next_id # Atribui um id ao objeto Revista
+    end
+
+    def save
+        File.open(File.join(Dir.pwd, "./db/revistas/#{@id}.yml", "w")) do |file|
+            file.puts serialize
+	end
+   end
+
+   private
+   def serialize
+       YAML.dump self
+   end
+  
+   def self.next_id
+	
+   Dir.glob("./db/revistas/*.yml").size + 1
+  end
+end
