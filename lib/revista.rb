@@ -9,22 +9,21 @@ class Revista
 	end
 	
 	def save
-		File.open("./db/revistas/#{@id}.yml", "w") do |file|
+		File.open(File.join(Dir.pwd, "db/revistas/#{@id}.yml"), 'w') do |file|
 			file.puts serialize
 		end
 	end
 
 	def self.find(id)
-		YAML.load File.open("./db/revistas/#{@id}.yml","r")
+		YAML.load File.open(File.join(Dir.pwd, "db/revistas/#{@id}.yml"),"r")
 	end
 
 	private
-	
 	def serialize
 		YAML.dump self
 	end
 
 	def self.next_id
-		Dir.glob("./db/revistas/*.yml").size + 1
+		Dir.glob(Dir.pwd, "db/revistas/*.yml").size + 1	
 	end
 end
