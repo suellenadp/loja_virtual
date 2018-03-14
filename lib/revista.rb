@@ -1,9 +1,11 @@
 # coding: utf-8
 'require "fileutils"'
 'include "active_file"'
+#'include Mongoid::Document'
 
 class Revista
-	'include Mongoid::Document'
-	field :titulo, type: String
+
+field :titulo
+field :valor
 
 end
